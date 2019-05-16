@@ -1,0 +1,12 @@
+extends default
+
+block content
+  div.container
+    each dance in dances
+      div.dance
+        div.dance-image(style=`background: url('/images/${dance.imgSrc}') top center
+        no-repeat; `)
+        h2.dance-name
+          | #{dance.name}
+        a(href=`/profile?id=${dance.id}`)
+          | View Profile
