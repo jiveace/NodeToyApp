@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-web
+  labels:
+    customer: acg
+spec:
+  selector:
+    matchLabels:
+      app: web
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - image: eu.gcr.io/kubernetes-play-240614/dances:latest 
+        name: web-ctr
+        ports:
+        - containerPort: 7000 
